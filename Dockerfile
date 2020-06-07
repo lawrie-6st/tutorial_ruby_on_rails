@@ -27,8 +27,9 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 # イニシャライザの役割を果たしている。DBが立ち上がっている場合は一度落としてくれる。
 ENTRYPOINT ["entrypoint.sh"]
-# ポートを指定する。
-EXPOSE 3000
+# t is not necessary.
+# if there is no EXPOSE on dockerfile,all of port is opened.
+#EXPOSE 3000
 
 # Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server"]
